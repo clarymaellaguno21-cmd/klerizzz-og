@@ -1,0 +1,108 @@
+/* --- 1. GLOBAL ROOT & SEAMLESS BACKGROUND --- */
+.root {
+    -fx-font-family: "Segoe UI", "Quicksand", sans-serif;
+    -fx-font-size: 14px;
+}
+
+.welcome-bg, .gradient-bg {
+    -fx-background-color:
+            white,
+            radial-gradient(center 0% 0%, radius 70%, rgba(108, 92, 231, 0.4) 0%, transparent 100%),
+            radial-gradient(center 100% 100%, radius 70%, rgba(162, 155, 254, 0.5) 0%, transparent 100%);
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-pane .viewport { -fx-background-color: transparent; }
+
+/* --- 2. THE MAIN CARD & SEARCH --- */
+.main-card {
+    -fx-background-color: white;
+    -fx-background-radius: 35px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 30, 0, 0, 15);
+}
+
+.search-field {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 25px;
+    -fx-padding: 12 20;
+}
+
+/* --- 3. TABLE  --- */
+.contact-table {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-color: #F1F2F6;
+    -fx-border-radius: 20px;
+}
+
+.contact-table .column-header-background {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 20 20 0 0;
+}
+
+.contact-table .column-header { -fx-background-color: transparent; -fx-size: 50px; }
+.contact-table .column-header .label { -fx-text-fill: #6C5CE7; -fx-font-weight: bold; }
+
+.contact-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-cell-size: 60px;
+    -fx-border-color: #F8F9FA;
+    -fx-border-width: 0 0 1 0;
+}
+.contact-table .table-row-cell:odd { -fx-background-color: #FAF9FF; }
+
+/* --- 4. DIALOG & BUBBLY BUTTONS --- */
+.dialog-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 30px;
+}
+
+.dialog-field {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 15px;
+    -fx-padding: 12 15;
+}
+
+/* Save & Cancel Buttons */
+.dialog-pane .button-bar .button {
+    -fx-background-radius: 20px;
+    -fx-padding: 8 25;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #6C5CE7;
+}
+
+.dialog-pane .button-bar .button:default {
+    -fx-background-color: #6C5CE7;
+    -fx-text-fill: white;
+}
+
+/* Success Toast */
+.toast {
+    -fx-background-color: #2D3436;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 6);
+}
+
+/* Button Styles */
+.btn-primary {
+    -fx-background-color: linear-gradient(to right, #6C5CE7, #8E7DFF);
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Clear All matched to Delete Button */
+.btn-danger, .btn-clear {
+    -fx-background-color: #FEE2E2;
+    -fx-background-radius: 12px;
+    -fx-text-fill: #EF4444;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
