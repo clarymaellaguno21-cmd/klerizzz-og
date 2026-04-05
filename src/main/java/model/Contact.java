@@ -19,7 +19,9 @@ public class Contact {
     }
 
     public String getFullName() {
-        return (getFirstName() + " " + getMiddleName() + " " + getLastName()).trim().replaceAll(" +", " ");
+        String m = getMiddleName().trim();
+        String middleInitial = m.isEmpty() ? "" : m.substring(0, 1).toUpperCase() + ".";
+        return (getFirstName() + " " + middleInitial + " " + getLastName()).trim().replaceAll(" +", " ");
     }
 
     public StringProperty firstNameProperty() { return firstName; }

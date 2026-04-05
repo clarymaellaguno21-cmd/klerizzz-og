@@ -18,7 +18,7 @@
 }
 .scroll-pane .viewport { -fx-background-color: transparent; }
 
-/* --- 2. THE MAIN CARD & SEARCH --- */
+/* --- 2. THE MAIN CARD & BUBBLY SEARCH --- */
 .main-card {
     -fx-background-color: white;
     -fx-background-radius: 35px;
@@ -29,15 +29,24 @@
     -fx-background-color: #F3F4F6;
     -fx-background-radius: 25px;
     -fx-padding: 12 20;
+    -fx-border-color: transparent;
 }
 
-/* --- 3. TABLE  --- */
+/* --- 3. THE CLEAN TABLE (NO BLUE HIGHLIGHT) --- */
 .contact-table {
     -fx-background-color: white;
     -fx-background-radius: 20px;
     -fx-border-color: #F1F2F6;
     -fx-border-radius: 20px;
+    -fx-selection-bar: transparent;
 }
+
+.contact-table .table-row-cell:selected {
+    -fx-background-color: #F3F1FF;
+    -fx-background-insets: 0;
+}
+
+.contact-table .table-row-cell:selected .text { -fx-fill: #2D3436; }
 
 .contact-table .column-header-background {
     -fx-background-color: #F9FAFB;
@@ -55,7 +64,7 @@
 }
 .contact-table .table-row-cell:odd { -fx-background-color: #FAF9FF; }
 
-/* --- 4. DIALOG & BUBBLY BUTTONS --- */
+/* --- 4. DIALOGS & SPECIAL PHONE VALIDATION STYLING --- */
 .dialog-pane {
     -fx-background-color: white;
     -fx-background-radius: 30px;
@@ -67,29 +76,23 @@
     -fx-padding: 12 15;
 }
 
-/* Save & Cancel Buttons */
-.dialog-pane .button-bar .button {
-    -fx-background-radius: 20px;
-    -fx-padding: 8 25;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
+/* The bubbly container for the +63 prefix and the input */
+.phone-container {
     -fx-background-color: #F3F4F6;
-    -fx-text-fill: #6C5CE7;
+    -fx-background-radius: 15px;
+    -fx-padding: 10 15;
+    -fx-alignment: center-left;
 }
 
-.dialog-pane .button-bar .button:default {
-    -fx-background-color: #6C5CE7;
-    -fx-text-fill: white;
+/* Makes the actual input box invisible so it blends with the container */
+.phone-input {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 0 0 5;
+    -fx-text-fill: #2D3436;
 }
 
-/* Success Toast */
-.toast {
-    -fx-background-color: #2D3436;
-    -fx-background-radius: 20px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 6);
-}
-
-/* Button Styles */
+/* --- 5. BUTTONS & TOAST --- */
 .btn-primary {
     -fx-background-color: linear-gradient(to right, #6C5CE7, #8E7DFF);
     -fx-background-radius: 15px;
@@ -97,12 +100,21 @@
     -fx-font-weight: bold;
 }
 
-/* Clear All matched to Delete Button */
 .btn-danger, .btn-clear {
     -fx-background-color: #FEE2E2;
     -fx-background-radius: 12px;
     -fx-text-fill: #EF4444;
     -fx-font-weight: bold;
     -fx-padding: 8 20;
-    -fx-cursor: hand;
+}
+
+.toast {
+    -fx-background-color: #2D3436;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0, 0, 6);
+}
+
+.toast-text {
+    -fx-fill: white;
+    -fx-font-weight: bold;
 }
