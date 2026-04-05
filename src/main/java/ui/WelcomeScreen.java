@@ -70,6 +70,7 @@ public class WelcomeScreen {
         Scene scene = new Scene(scrollPane, 1000, 750);
         scene.getStylesheets().add(getClass().getResource("/styles/purple-theme.css").toExternalForm());
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

@@ -80,6 +80,7 @@ public class ContactManagerApp {
         Scene scene = new Scene(root, 1000, 750);
         scene.getStylesheets().add(getClass().getResource("/styles/purple-theme.css").toExternalForm());
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
