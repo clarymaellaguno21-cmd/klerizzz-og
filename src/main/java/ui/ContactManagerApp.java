@@ -84,9 +84,40 @@ public class ContactManagerApp {
     }
 
     private void setupColumns() {
-        // Name Column
+        // Name Column (Editable via First Name update for simplicity, or complex parsed edit)
         TableColumn<Contact, String> nCol = new TableColumn<>("NAME");
         nCol.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getFullName()));
+        nCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        nCol.setOnEditCommit(event -> {
+            String newFullName = event.getNewValue().trim();
+            String[] parts = newFullName.split("\\s+");
+            Contact c = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            if (parts.length >= 3) {
+                c.setFirstName(parts[0]);
+                c.setMiddleName(parts[1]);
+                StringBuilder lastName = new StringBuilder();
+                for (int i = 2; i < parts.length; i++) {
+                    lastName.append(parts[i]).append(i == parts.length - 1 ? "" : " ");
+                }
+                c.setLastName(lastName.toString());
+            } else if (parts.length == 2) {
+                c.setFirstName(parts[0]);
+                c.setMiddleName("");
+                c.setLastName(parts[1]);
+            } else if (parts.length == 1) {
+                c.setFirstName(parts[0]);
+                c.setMiddleName("");
+                c.setLastName("");
+            } else {
+                c.setFirstName("");
+                c.setMiddleName("");
+                c.setLastName("");
+            }
+            sortContacts();
+            fileHandler.save(contacts);
+            tableView.refresh();
+            showToast("Name Updated! 👤");
+        });
 
         // Email Column (Editable)
         TableColumn<Contact, String> eCol = new TableColumn<>("EMAIL");
